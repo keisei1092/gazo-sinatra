@@ -3,8 +3,7 @@ Bundler.require
 require 'carrierwave/orm/activerecord'
 
 configure do
-  ActiveRecord::Base.configurations = YAML.load_file('db/database.yml')
-  ActiveRecord::Base.establish_connection(Sinatra::Application.environment)
+  register Sinatra::ActiveRecordExtension
   enable :sessions
 end
 
