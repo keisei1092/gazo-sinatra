@@ -1,0 +1,20 @@
+version: "3.0"
+services:
+  sinatra:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "9292:9292"
+    volumes:
+      - bundle:/bundle
+      - ./db:/app/db
+      - ./public:/app/public
+      - ./views:/app/views
+      - ./app.rb:/app/app.rb
+      - ./config.ru:/app/config.ru
+      - ./Gemfile:/app/Gemfile
+      - ./Gemfile.lock:/app/Gemfile.lock
+      - ./Rakefile:/app/Rakefile
+volumes:
+  bundle:
